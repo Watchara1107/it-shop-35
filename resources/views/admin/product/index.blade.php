@@ -18,19 +18,23 @@
           </tr>
         </thead>
         <tbody class="table-border-bottom-0">
-          <tr>
-          <td>1</td>
-          <td>iphone 14 Pro Max</td>
-          <td>iphone.jpg</td>
-          <td>45,990 บาท</td>
-          <td>ผลิตโดยบริษัทแอปเปิ้ล</td>
-          <td>2022-07-25 12:46:29</td>
-          <td>2022-07-25 12:46:29</td>
+         @foreach ($product as $products)
+         <tr>
+          <td>{{ $products->product_id }}</td>
+          <td>{{ $products->name }}</td>
+          <td>
+            <img src="{{ asset('admin/upload/product/'.$products->image)}}" width="100px" height="80px" alt="">
+          </td>
+          <td>{{ $products->price }}</td>
+          <td>{{ $products->description }}</td>
+          <td>{{ $products->created_at }}</td>
+          <td>{{ $products->updated_at }}</td>
           <td>
             <a href="#"><i class='bx bxs-edit'></i></a>
-            <a href="#"><i class='bx bx-trash'></i></a>
+            <a href="{{ url('/admin/product/delete/'.$products->product_id) }}"><i class='bx bx-trash'></i></a>
           </td>
           </tr>
+         @endforeach
         </tbody>
       </table>
     </div>

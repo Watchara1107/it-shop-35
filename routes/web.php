@@ -52,5 +52,6 @@ Route::post('/admin/category/update/{id}',[CategoryController::class, 'update'])
 Route::get('/admin/product/index',[ProductController::class, 'index'])->name('product.index');
 Route::get('/admin/product/create',[ProductController::class, 'createform'])->name('product.create');
 Route::post('/admin/product/insert',[ProductController::class, 'insert'])->name('product.insert');
+Route::get('/admin/product/delete/{id}',[ProductController::class, 'delete']);
 
 
